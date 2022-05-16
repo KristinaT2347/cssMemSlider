@@ -120,6 +120,10 @@ main {
 }
 
 @media (max-width: 767px) {
+  .slider-container {
+    width: 100%;
+  }
+
   .bottom-part {
     flex-direction: column-reverse;
   }
