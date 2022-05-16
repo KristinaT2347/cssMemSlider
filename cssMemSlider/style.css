@@ -1,0 +1,148 @@
+body {
+  background-color: blanchedalmond;
+  padding-top: 1rem;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  width: 60%;
+  padding: 2rem;
+}
+
+.slider-container > input {
+  display: none;
+}
+
+.slides {
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform ease-in-out 0.5s, opacity ease-in-out 0.5s;
+  opacity: 0;
+}
+
+.slide > img {
+  border-radius: 1%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#slide1:checked ~ .slides > .slide1,
+#slide2:checked ~ .slides > .slide2,
+#slide3:checked ~ .slides > .slide3,
+#slide4:checked ~ .slides > .slide4 {
+  opacity: 1;
+  z-index: 1;
+  transform: scale(1);
+}
+
+.bottom-part {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex: none;
+}
+
+.captions {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.caption {
+  font-size: 1.3rem;
+  margin-left: -100%;
+  display: none;
+}
+
+#slide1:checked ~ .bottom-part .caption:nth-of-type(1),
+#slide2:checked ~ .bottom-part .caption:nth-of-type(2),
+#slide3:checked ~ .bottom-part .caption:nth-of-type(3),
+#slide4:checked ~ .bottom-part .caption:nth-of-type(4) {
+  animation: leftToRight 1s ease;
+  margin-left: 0;
+  display: block;
+}
+
+@keyframes leftToRight {
+  from {
+    margin-left: -100%;
+  }
+  to {
+    margin-left: 0;
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+}
+
+.controls label {
+  cursor: pointer;
+  position: relative;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+#slide1:checked ~ .bottom-part label:nth-of-type(1):after,
+#slide2:checked ~ .bottom-part label:nth-of-type(2):after,
+#slide3:checked ~ .bottom-part label:nth-of-type(3):after,
+#slide4:checked ~ .bottom-part label:nth-of-type(4):after {
+  background: #000;
+}
+
+.controls label:after {
+  border: 0.1rem solid #000;
+  content: " ";
+  display: block;
+  height: 1rem;
+  margin-left: 0.75rem;
+  position: absolute;
+  margin-top: 0.75rem;
+  width: 1rem;
+  border-radius: 50%;
+  transition: background ease-in-out 0.5s;
+}
+
+#slide1 ~ .bottom-part > .controls label:hover:after {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 767px) {
+  .slider-container {
+    width: 100%;
+  }
+
+  .bottom-part {
+    flex-direction: column-reverse;
+  }
+
+  .captions {
+    width: 100%;
+  }
+}
