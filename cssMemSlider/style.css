@@ -1,12 +1,11 @@
 body {
   background-color: blanchedalmond;
-  min-width: 300px;
-  /* max-width: 1200px; */
   padding-top: 1rem;
 }
 
 h1 {
   text-align: center;
+  margin-bottom: 0;
 }
 
 main {
@@ -20,7 +19,7 @@ main {
   justify-content: center;
   flex-direction: column;
   gap: 1rem;
-  width: 100%;
+  width: 60%;
   padding: 2rem;
 }
 
@@ -60,17 +59,24 @@ main {
 
 .bottom-part {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  gap: 1.5rem;
+  flex: none;
 }
 
 .captions {
   position: relative;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
 }
 
 .caption {
   position: absolute;
   opacity: 0;
   transition: transform ease-in-out 0.5s, opacity ease-in-out 0.5s;
+  font-size: 1.3rem;
 }
 
 #slide1:checked ~ .bottom-part .caption:nth-of-type(1),
@@ -111,4 +117,14 @@ main {
   width: 1rem;
   border-radius: 50%;
   transition: background ease-in-out 0.5s;
+}
+
+@media (max-width: 767px) {
+  .bottom-part {
+    flex-direction: column-reverse;
+  }
+
+  .captions {
+    width: 100%;
+  }
 }
