@@ -1,0 +1,53 @@
+body {
+  background-color: blanchedalmond;
+  min-width: 300px;
+  /* max-width: 1200px; */
+  padding-top: 1em;
+}
+
+h1 {
+  text-align: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-container {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px; 
+}
+
+.slide {
+  object-fit: cover;
+  height: 100%;
+}
+
+.slide  > img {
+  border-radius: 1%;
+}
+
+.slide1 {
+}
+
+.slide2 {
+  display: none;
+}
+
+.slide3 {
+  display: none;
+}
+
+.slide4 {
+  display: none;
+}
+
+.caption {
+    display: flex;
+    justify-content: space-between;
+}
